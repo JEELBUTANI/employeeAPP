@@ -1,0 +1,66 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="EmployeeFirstName">EmployeeFirstName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="EmployeeFirstName"
+            required
+            [(ngModel)]="employee.EmployeeFirstName"
+            name="EmployeeFirstName"
+          />
+        </div>
+
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="EmployeeLastNAme">EmployeeLastNAme</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EmployeeLastNAme"
+                  required
+                  [(ngModel)]="employee.EmployeeLastNAme"
+                  name="EmployeeLastNAme"
+                />
+        </div>
+
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="EmployeeEmail">EmployeeEmail</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EmployeeEmail"
+                  required
+                  [(ngModel)]="employee.EmployeeEmail"
+                  name="EmployeeEmail"
+                />
+        </div>
+
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="EmployeeContact">EmployeeContact</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="EmployeeContact"
+                  required
+                  [(ngModel)]="employee.EmployeeContact"
+                  name="EmployeeContact"
+                />
+        </div>
+        <button (click)="saveEmployee()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Employee was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newEmployee()">Add</button>
+      </div>
+    </div>
+  </div>
+  

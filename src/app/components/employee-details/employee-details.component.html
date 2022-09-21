@@ -1,0 +1,97 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentEmployee.EmployeeId">
+      <h4>Employee</h4>
+      <div>
+        <label><strong>EmployeeFirstName:</strong></label> {{ currentEmployee.EmployeeFirstName }}
+      </div>
+      <div>
+        <label><strong>EmployeeLastNAme:</strong></label> {{ currentEmployee.EmployeeLastNAme }}
+      </div>
+      <div>
+        <label><strong>EmployeeEmail:</strong></label> {{ currentEmployee.EmployeeEmail }}
+      </div>
+
+      <div>
+        <label><strong>EmployeeContact:</strong></label> {{ currentEmployee.EmployeeContact }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/employee/{{ currentEmployee.EmployeeId }}"
+      >
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentEmployee">
+      <br />
+      <p>Please click on a Employee...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentEmployee.EmployeeId" class="edit-form">
+      <h4>Employee</h4>
+      <form>
+        <div class="form-group">
+          <label for="EmployeeFirstName">EmployeeFirstName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="EmployeeFirstName"
+            [(ngModel)]="currentEmployee.EmployeeFirstName"
+            name="EmployeeFirstName"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="EmployeeLasNAme">EmployeeLastNAme</label>
+            <input
+              type="text"
+              class="form-control"
+              id="EmployeeLastNAme"
+              [(ngModel)]="currentEmployee.EmployeeLastNAme"
+              name="EmployeeLastNAme"
+            />
+          </div>
+          <div class="form-group">
+            <label for="EmployeeEmail">EmployeeEmail</label>
+            <input
+              type="text"
+              class="form-control"
+              id="EmployeeEmail"
+              [(ngModel)]="currentEmployee.EmployeeEmail"
+              name="EmployeeEmail"
+            />
+          </div>
+          <div class="form-group">
+            <label for="EmployeeContact">EmployeeContact</label>
+            <input
+              type="text"
+              class="form-control"
+              id="EmployeeContact"
+              [(ngModel)]="currentEmployee.EmployeeContact"
+              name="EmployeeContact"
+            />
+          </div>
+      </form>
+
+      <button class="badge badge-danger mr-2" (click)="deleteEmployee()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!deleteEmployee">
+      <br />
+      <p>Cannot access this Employee...</p>
+    </div>
+  </ng-template>

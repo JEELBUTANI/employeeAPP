@@ -1,0 +1,44 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="employee"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchEmployeeFirstName()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Employee List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let employee of employee; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveTutorial(employee, i)"
+        >
+          {{ employee.EmployeeFirstName }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllEmployee()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <app-employee-details 
+      [viewMode]="true" 
+      [currentEmployee]="currentEmployee">
+    </app-employee-details>
+    </div>
+  </div>
